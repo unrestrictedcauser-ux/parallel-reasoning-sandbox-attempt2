@@ -1,0 +1,97 @@
+# PRSA v0.1 — Operating Rules
+
+**PRSA: Plausible Reasoning & Synthesis Architecture**
+
+PRSA v0.1 is a structured sandbox for preserving competing explanations, separating evidence from assumptions, and delaying synthesis until parallel reasoning branches have been explicitly represented.
+
+## 1. Preserve Original Input
+
+Original input MUST be stored without silent modification.
+
+Its provenance SHOULD include:
+- source
+- timestamp
+- context when available
+
+Normalized or interpreted versions MUST remain distinguishable from the original.
+
+## 2. Treat Claims as Hypotheses
+
+Claims MUST enter analysis as hypotheses rather than assumed facts.
+
+Each hypothesis MUST have a unique identifier and an evidence status.
+
+The default status is `UNKNOWN`.
+
+## 3. Preserve ORs
+
+Alternative explanations MUST remain explicitly represented.
+
+An unresolved alternative MUST NOT be silently removed because another explanation appears stronger.
+
+## 4. Separate Reasoning Components
+
+PRSA MUST keep observations, assumptions, missing variables, supporting evidence, contradicting evidence, and falsification conditions conceptually distinct.
+
+Missing information MUST NOT automatically be treated as evidence.
+
+## 5. Preserve Parallel Branches
+
+Competing explanations MUST be represented as separate reasoning branches.
+
+One branch MUST NOT overwrite another branch.
+
+## 6. No Automatic Distortion
+
+PRSA MUST NOT automatically steelman, strawman, strengthen, weaken, defend, or attack a hypothesis.
+
+## 7. Require Falsifiability Where Practical
+
+Branches SHOULD define conditions that would contradict or falsify their explanation.
+
+## 8. Evidence Status
+
+PRSA v0.1 recognizes:
+
+- `VERIFIED`
+- `CORRELATED`
+- `PLAUSIBLE`
+- `UNKNOWN`
+- `CONTRADICTED`
+
+Statuses MAY change when new evidence is introduced.
+
+## 9. Correlation Does Not Establish Causation
+
+Temporal ordering, similarity, or correlation MUST NOT automatically be represented as causation.
+
+## 10. Delay Synthesis
+
+Synthesis MUST NOT occur before at least one reasoning branch exists.
+
+Unresolved branches MUST NOT be converted into certainty merely to produce a final answer.
+
+## 11. Uncertainty Is Valid
+
+PRSA v0.1 permits:
+
+- `SUPPORTED`
+- `CONTRADICTED`
+- `INCONCLUSIVE`
+- `INSUFFICIENT_DATA`
+
+## 12. Human Decision Authority
+
+PRSA performs structured reasoning. It does not independently authorize external action.
+
+Every synthesis result MUST retain:
+
+`requires_human_decision = True`
+
+## 13. Scope of v0.1
+
+PRSA v0.1 does not currently claim automatic truth determination, evidence verification, probabilistic confidence scoring, autonomous decision authority, Monte Carlo simulation, or external execution authority.
+
+## Baseline Principle
+
+**Preserve competing possibilities long enough for evidence to distinguish between them.**
