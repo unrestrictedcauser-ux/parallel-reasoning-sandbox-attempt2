@@ -1,0 +1,33 @@
+name: PRSA Validation
+
+on:
+  push:
+    branches:
+      - new-branch
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate-prsa:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify PRSA files exist
+        run: |
+          test -f prsa.py
+          test -f RULES.md
+
+      - name: Check Python syntax
+        run: python -m py_compile prsa.py
+
+      - name: Run PRSA
+        run: python prsa.py
